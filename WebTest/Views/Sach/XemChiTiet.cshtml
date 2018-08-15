@@ -1,0 +1,13 @@
+﻿@using WebTest.Models;
+@model Sach
+
+
+@{
+    ViewBag.Title = "XemChiTiet";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+<div><img src="@Url.Content("~/Picture/"+Model.AnhBia)" width="50" height="50"/></div>
+<div>Mã Sách: @Model.MaSach</div>
+<div>Tên Sách: @Model.TenSach</div>
+<div>Thông tin: @Model.MoTa</div>

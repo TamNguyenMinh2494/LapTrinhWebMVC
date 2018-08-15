@@ -1,0 +1,152 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    @*Chèn css có sẵn từ free template*@
+    <link href="~/Content/NguoiDungCssLayout/fonts.css" rel="stylesheet" />
+    <link href="~/Content/NguoiDungCssLayout/screen.css" rel="stylesheet" />
+    @*Css của tui*@
+    <link href="~/Content/NguoiDungCssLayout/NguoiDungCssLayout.css" rel="stylesheet" />
+    @*Css font layout*@
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+    @*nivo slider*@
+
+    <link href="~/NivoSlider/nivo-slider.css" rel="stylesheet" />
+    @*nivoslider*@
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.js"></script>
+    <script src="~/NivoSlider/jquery.nivo.slider.pack.js"></script>
+    
+</head>
+
+<body>
+
+    <div id="ToanTrang">
+
+        <section class="blank">
+            <div class="flash">
+                <div class="DienThoai">
+                    <i class="fas fa-phone"></i>
+                    (028) 3709 1991 - Anh Quân đẹp trai
+                </div>
+                @*div đăng ký đăng nhập*@
+                <div class="DangKyDangNhap">
+                    @*Cách viết thứ 1: @Html.ActionLink("Đăng Ký", "DangKy", null, htmlAttributes: new {@class = "DangKy" })*@
+                    <i class="fas fa-sign-in-alt"></i>
+                    <a href="Home/DangKy" class="DangKy">Đăng Ký</a>@*Cách thứ 2*@
+                    <i class="fas fa-unlock-alt"></i>
+                    <a href="Home/DangNhap" class="DangNhap">Đăng Nhập</a>
+                </div>
+            </div>
+
+            <nav data-spy="affix" data-offset-top="197">
+                <div class="flash success" id="DanhMuc">
+                    <div id="txtTimKiem">
+                        <form>
+                            <input type="text" class="TextBoxTimKiem" placeholder="Tìm kiếm..." />
+
+                            <button id="btnSearch" type="submit"><i class="fas fa-search"></i></button>
+                        </form>
+                    </div>
+                    <ul class="navMenu">
+                        <li><a href="#" class="active">Trang Chủ</a></li>
+                        <li><a href="#">Giới Thiệu</a></li>
+                        <li><a href="#">Liên Hệ</a></li>
+                        <li><a href="#">Hướng Dẫn</a></li>
+                        <li><a href="#">Sách</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </section>
+
+        <section>
+            <div id="divMenuLeft">
+                <div class="activity">
+                    @*Chèn partial vào layout*@
+
+
+                    @Html.Action("NewArrivalPartial", "Sach")
+
+                </div>
+
+            </div>
+            <div id="slider" class="nivoSlider">
+                <img src="~/Pictures/Tulips.jpg" />
+                <img src="~/Pictures/Koala.jpg" />
+                <img src="~/Pictures/Lighthouse.jpg" />
+                <img src="~/Pictures/Penguins.jpg" />
+            </div>
+            <div style="clear:both"></div>
+        </section>
+        @*div body của index.cshtml*@
+        <div id="NoiDung">
+            @RenderBody()
+        </div>
+        <section>
+
+            <div>
+                @*Phần Chủ Đề*@
+                @Html.Action("ChuDePartial", "ChuDe")
+
+            </div>
+            <hr>
+        </section>
+
+        <section class="blank items">
+
+            <div id="NXBLeft">
+                <div class="item">
+                    <div class="item-info">
+                        @*Action Partial NXB*@
+                        @Html.Action("NhaXuatBanPartial", "NhaXuatBan")
+
+                    </div>
+                    <img src="~/Pictures/Penguins.jpg" />
+                </div>
+            </div>
+            @RenderSection("NoiDungSach", false)@*false là do k muốn định nghĩa lại trong XemChiTiet*@
+            <div style="clear:both">
+                <a href="#" class="button button-buy">Welcome to my group <br />&copy; CopyRight by Team 8 | Today is @DateTime.Now.DayOfWeek</a>
+            </div>
+        </section>
+    </div>
+    @*js for nivo*@
+    <script type="text/javascript">
+        $(window).on('load', function () {
+            $('#slider').nivoSlider({
+                controlNav: false,
+                nextText: " ",
+                prevText: " ",
+            });
+        });
+    </script>
+    <div id="topcontrol" title="Back to Top" style="z-index: 9999; position: fixed; bottom: 20px; right: 5px; opacity: 1; cursor: pointer;">
+        <img onclick="topFunction()" src="https://static.foody.vn/Scripts/scroll/go-top.png" style="width:59px; height:50px">
+    </div>
+    //di chuyển lên đầu trang 
+    <script>
+        // When the user scrolls down 20px from the top of the document, show the button
+        window.onscroll = function () { scrollFunction() };
+
+        function scrollFunction() {
+            if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                document.getElementById("topcontrol").style.display = "block";
+            } else {
+                document.getElementById("topcontrol").style.display = "none";
+            }
+        }
+
+        // When the user clicks on the button, scroll to the top of the document
+        function topFunction() {
+            document.body.scrollTop = 0;
+            document.documentElement.scrollTop = 0;
+        }
+    </script>
+</body>
+</html>

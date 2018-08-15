@@ -1,0 +1,91 @@
+﻿#ToanTrang{
+    position:relative; /*Độ rộng full trang*/
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-weight:bold;
+}
+.DangKyDangNhap{
+    float:right;
+    margin-top: -1%;
+}
+.DangKyDangNhap a:hover{
+    text-decoration: none;
+    color: blue;
+}
+.DienThoai{
+    float:left;
+    margin-top: -1%;
+}
+/*css cho danh mục*/
+#DanhMuc{
+    height:30px;
+}
+.navMenu{
+    float:right;
+    margin-right:10%;
+}
+    .navMenu li {
+        display: inline;
+        border-right: 0.1px solid #cccc;
+        padding: 19px 23px 22px 23px;
+        -webkit-transition: all 0.5s ease-out;
+    }
+.navMenu li:hover {
+    background-color:black;
+    }
+.navMenu a:hover{
+    text-decoration:none;
+}
+/*css tìm kiếm*/
+#txtTimKiem{
+    float:left;
+    margin-left: 5%;
+}
+#txtTimKiem input{
+    height:0;
+}
+#txtTimKiem button{
+    margin-right: 60px;
+    padding: 0px 10px 0px 10px;
+    background-color: #14a19a;
+}
+#txtTimKiem button:hover{
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    -webkit-animation:initial;
+}
+/*nivo slider*/
+#slider img {
+    width: 900px;
+    height: 400px;
+}
+#slider{
+    float: right;
+    width:900px;
+    height:360px;
+}
+.button{
+    background-color:green;
+}
+.button:hover{
+    text-decoration:none;
+    color:red;
+}
+#divMenuLeft{
+    float:left;
+   
+}
+
+#NXBLeft{
+    float:left;
+    width:30%;
+}
+#NXBLeft .item{
+    width:100%;
+}
+#NXBRight {
+ 
+    float: right;
+    width: 70%;
+   
+}

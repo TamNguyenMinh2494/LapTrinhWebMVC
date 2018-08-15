@@ -1,0 +1,18 @@
+﻿@using WebTest.Models
+@model List<ChuDe>
+@{
+    ViewBag.Title = "DanhMucChuDe";
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+}
+
+@*hiển thị danh mục chủ đề*@
+
+@{
+    foreach (var item in Model)
+    {
+            <a id="btnChuDe" style="width:250px;font-size:11pt;color:aliceblue;text-decoration:none" href="@Url.Action("SachTheoChuDe",new { @MaChuDe = item.MaChuDe})" class="button button-submit">@item.TenChuDe</a>
+            <br/>
+            <br/>
+    }
+}
+

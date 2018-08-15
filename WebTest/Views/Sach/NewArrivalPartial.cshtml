@@ -1,0 +1,29 @@
+﻿@using WebTest.Models;
+@model List<Sach>   
+@*ép kiểu cho model *@
+
+
+<h1 class="item-header">New Arrival</h1>
+
+@{
+    foreach (var item in Model)
+    {
+<div class="activity-list-update">
+    <img src="@Url.Content("~/Pictures/"+item.AnhBia)" width="50" height="50" alt="Image">
+    @if (item.TenSach.Length > 30)
+    {
+        <p><strong title="@item.TenSach">Tiêu đề: @item.TenSach.Substring(0, 30)...</strong><br /><a href="@Url.Action("XemChiTiet", new {@masach = item.MaSach })">new-design.png</a></p>
+    }
+    else
+    {
+        <p><strong title="@item.TenSach">Tiêu đề: @item.TenSach</strong><br /><a href="@Url.Action("XemChiTiet", new {@masach = item.MaSach })">Xem Chi Tiết</a></p>
+        <div class="clear"></div>
+    }
+
+
+</div>
+    }
+}
+<a href="#" class="item-footer green">
+    Giá Tốt
+</a>

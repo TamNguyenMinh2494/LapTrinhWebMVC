@@ -1,0 +1,54 @@
+﻿@using WebTest.Models;
+@model List<Sach>
+<link href="~/Content/NguoiDungCssLayout/TrangChuCss.css" rel="stylesheet" />
+
+@{
+    Layout = "~/Views/Layout/NguoiDungLayout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+@section NoiDungSach{
+    <div>
+        Trao đổi với VnExpress, ông Phạm Minh Trí (Giám đốc Sở Lao động -
+        Thương binh và Xã hội Tiền Giang) cho biết, đến đầu giờ chiều, đã có 224 học viên trở lại trại, cảnh sát tiếp tục tìm kiếm 18 học viên còn lại. Riêng một cán bộ tại
+        trung tâm bị học viên tấn công đang điều trị tại bệnh viện, sức khỏe đã ổn định.
+        Hơn 200 học viên đã trở về cơ sở cai nghiện ma túy Tiền Giang sau một đêm bỏ trốn, cảnh sát đang truy tìm 18 học viên còn lại.
+        Hàng trăm học viên cai nghiện ở Tiền Giang tràn ra quốc lộ
+
+        Chiều 12/8, hai xe chở hàng chục cảnh sát cơ động vẫn túc trực tại cơ sở cai nghiện ma túy Tiền Giang (Tam Hiệp, Châu Thành). An ninh được thắt chặt, tuyến đường ngang cổng trung tâm bị phong tỏa, người dân được hướng dẫn đi đường khác. Ngoài số học viên được cảnh sát áp giải về, một số người khác cũng được gia đình động viên, trực tiếp đưa trở lại cơ sở.
+
+        Ông Nguyễn Xuân Lập, Cục trưởng Phòng chống tệ nạn xã hội, Bộ Lao động - Thương binh và Xã hội đã thăm hỏi hơn 600 học viên tại cơ sở.
+        Gần 200 học viên tràn ra Quốc lộ 1, cởi áo vứt dọc đường, cầm gậy đi nghênh ngang và
+        la hét khiến người dân hoảng sợ, xe cộ ùn tắc kéo dài. Các thanh niên cai nghiện sau đó chia thành từng nhóm nhỏ, đi vào những đường hẻm lấy xe đạp của người dân bỏ chạy.
+    </div>
+}
+@*Thao tác với Body của Index*@
+<div id="divBody" style="background:white">
+    @{ int i = 0;}
+    @foreach (var item in Model)
+    {
+        i++;
+    <div id="SanPham">
+        <div id="AnhBia">
+            <img src="@Url.Content("~/Pictures/"+item.AnhBia)" width="100" height="150" />
+        </div>
+        <div id="ThongTin">
+            @if (item.TenSach.Length < 35)
+            {
+                <div id="TenSach" title="@item.TenSach">@item.TenSach</div>
+            }
+            else
+            {
+                <div id="TenSach" title="@item.TenSach">@item.TenSach.Substring(0, 35)...</div>
+            }
+
+            <div id="DonGia" style="color:orange"><font color="green">Giá: </font>@string.Format("{0:0.00}",item.GiaBan+ " VNĐ")</div>
+        </div>   
+     </div>
+        if (i % 3 == 0)
+        {
+            <div style="clear:both"></div>
+        }
+    }
+</div>
+<div style="clear:both"></div>
