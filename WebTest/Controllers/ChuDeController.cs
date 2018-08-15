@@ -6,6 +6,7 @@ using System.Web.Mvc;
 using WebTest.Models;
 namespace WebTest.Controllers
 {
+
     public class ChuDeController : Controller
     {
         // GET: ChuDe
